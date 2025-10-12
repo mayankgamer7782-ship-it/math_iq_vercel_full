@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.mjs"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
