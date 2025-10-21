@@ -1,16 +1,11 @@
 {
-  "version": 3,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static-build", "config": { "distDir": "dist" } },
+    { "src": "api/**/*.mjs", "use": "@vercel/node" }
+  ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.mjs"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "src": "/api/(.*)", "dest": "/api/$1.mjs" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
